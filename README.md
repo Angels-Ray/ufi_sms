@@ -27,8 +27,9 @@ ufi-message https://gitee.com/jiu-xiao/ufi-message
 
 注：
 
-    发送成功短信都会写入日志文件sms_log，如不需日志，就注释掉msg.py第38行的“save_log(title,content)”。
-    发送成功短信都会自动删除。若不想删除就注释掉msg.py第161行“del_msg(i)”
+发送成功短信都会写入日志文件sms_log，如不需日志，就注释掉msg.py第38行的“save_log(title,content)”。
+
+发送成功短信都会自动删除。若不想删除就注释掉msg.py第161行“del_msg(i)”
 
 # 记录LOG
 在当前目录下 'sms_log' 文件
