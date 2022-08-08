@@ -2,9 +2,9 @@
 corp_init.py是企业微信转发的配置信息
 
 # 基于以下项目魔改而来：
-SMS_Forward https://github.com/n0raml/SMS-Forward
+SMS_Forward https://github.com/n0raml/SMS-Forward https://github.com/Angels-Ray/ufi_sms/tree/main/quotation/SMS_Forward
 
-ufi-message https://gitee.com/jiu-xiao/ufi-message
+ufi-message https://gitee.com/jiu-xiao/ufi-message https://github.com/Angels-Ray/ufi_sms/tree/main/quotation/ufi-message
 
 # 依赖
 - Python3
