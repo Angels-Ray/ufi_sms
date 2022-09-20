@@ -161,24 +161,50 @@ def forward_msg():
             del_msg(i)
             pass
 
+def usage():
+    print('''随身wifi短信转发
+注：请转发前补全corp_init.py的信息！
+corp_init.py是企业微信转发的配置信息
+使用方法：
+
+添加短信到暂存区
+python3 msg.py add <接收者> <短信>
+例：python3 msg.py add 861234567890 text
+添加发送到1234567890的内容为text的短信到暂存区
+
+将所有暂存区的短信发送
+python3 msg.py send
+
+清除本地所有短信（暂存，已发送，接收）
+python3 msg.py clean
+
+将所有接收到的短信通过企业微信转发
+python3 msg.py forward
+
+log文件位于当前目录下的'sms_log'文件
+如不需日志，就注释掉msg.py第38行的“save_log(title,content)”
+更多信息请看项目地址：https://github.com/Angels-Ray/ufi_sms
+''')
+
 cmd = sys.argv
 cmd_len = len(cmd)
-
-if cmd[1] == 'help':
-    print('随身wifi短信转发')
-    print('Command: help add send clean forward')
-elif cmd[1] == 'add':
-    add_msg(cmd[2],cmd[3])
-elif cmd[1] == 'send':
-    scan_local_msg()
-    send_all()
-elif cmd[1] == 'clean':
-    scan_local_msg()
-    clean_sent()
-    clean_unknow()
-    clean_recv()
-elif cmd[1] == 'forward':
-    scan_local_msg()
-    forward_msg()
-else:
-    print('Command error.')
+try:
+    if cmd[1] == 'help':
+        usage()
+    elif cmd[1] == 'add':
+        add_msg(cmd[2],cmd[3])
+    elif cmd[1] == 'send':
+        scan_local_msg()
+        send_all()
+    elif cmd[1] == 'clean':
+        scan_local_msg()
+        clean_sent()
+        clean_unknow()
+        clean_recv()
+    elif cmd[1] == 'forward':
+        scan_local_msg()
+        forward_msg()
+    else:
+        usage()
+except IndexError:
+    usage()
